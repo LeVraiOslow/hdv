@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Installer Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+
+      - name: Compiler avec Maven
+        run: mvn -B clean package
+
+      - name: Envoyer le jar en artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HotelDeVente
+          path: target/HotelDeVente-*.jar
+          if-no-files-found: error
+
+      # Crée une release GitHub automatiquement quand on pousse un tag (ex: v1.0.0)
+      - name: Publier la release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: target/HotelDeVente-*.jar
