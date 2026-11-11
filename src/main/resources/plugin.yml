@@ -1,0 +1,22 @@
+name: HotelDeVente
+version: '${project.version}'
+main: fr.hotelvente.HotelDeVente
+api-version: '26.2'
+description: Hôtel de vente (vanilla + Nexo) avec Vault et LuckPerms
+depend: [Vault]
+softdepend: [LuckPerms, Nexo]
+commands:
+  hdv:
+    description: Hôtel de vente
+    usage: /hdv [sell <prix>|unsold|reload]
+    aliases: [hotelvente, ah]
+permissions:
+  hdv.use:
+    description: Ouvrir l'hôtel de vente et acheter
+    default: true
+  hdv.sell:
+    description: Mettre des items en vente
+    default: true
+  hdv.admin:
+    description: Recharger le plugin
+    default: op

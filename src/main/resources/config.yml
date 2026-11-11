@@ -1,0 +1,48 @@
+# ===========================================================
+#  HotelDeVente - configuration générale
+# ===========================================================
+
+# Durée avant qu'un item non vendu soit retiré de l'HDV (en heures)
+duration-hours: 48
+
+# Fréquence de vérification des items expirés (en secondes)
+expire-check-seconds: 30
+
+# Taxe prélevée sur le vendeur au moment de la mise en vente (% du prix)
+tax-percent: 5.0
+
+# Prix minimum / maximum d'une mise en vente
+min-price: 1.0
+max-price: 1000000000.0
+
+# Ouvrir un menu de confirmation avant un achat
+confirm-purchase: true
+
+# Prévenir le joueur à la connexion s'il a des items invendus
+notify-on-join: true
+
+# Prévenir le vendeur (s'il est en ligne) quand un de ses items est acheté
+notify-seller-on-sale: true
+
+# Nombre d'items (annonces) simultanés selon le rang LuckPerms.
+# Le nom doit être EXACTEMENT le nom du groupe LuckPerms.
+# Si le joueur a plusieurs groupes, la valeur la plus haute est retenue
+# (l'héritage de groupes LuckPerms est pris en compte).
+slots:
+  default: 3
+  paysan: 4
+  artisan: 6
+  noble: 8
+  vip: 12
+
+# Items interdits à la vente : nom de Material vanilla ou "nexo:id"
+blacklist:
+  - BEDROCK
+  - BARRIER
+  - COMMAND_BLOCK
+  - CHAIN_COMMAND_BLOCK
+  - REPEATING_COMMAND_BLOCK
+  - STRUCTURE_BLOCK
+  - JIGSAW
+  - DEBUG_STICK
+  # - nexo:mon_item_interdit

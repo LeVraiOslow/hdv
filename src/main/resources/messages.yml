@@ -1,0 +1,40 @@
+# Codes supportés : &c &l &o &r ..., hex &#ff8800, et balises MiniMessage
+# ex: <gradient:red:gold>texte</gradient>, <click:...>, <hover:...>
+# Mettre un message vide ("") pour le désactiver.
+
+prefix: "&8[&6HDV&8] &7"
+
+no-permission: "&cVous n'avez pas la permission."
+player-only: "&cCommande réservée aux joueurs."
+economy-error: "&cErreur d'économie, réessayez plus tard."
+
+help:
+  - "&6/hdv &7- Ouvrir l'hôtel de vente"
+  - "&6/hdv sell <prix> &7- Vendre l'item en main"
+  - "&6/hdv unsold &7- Récupérer vos items invendus"
+
+usage-sell: "&cUtilisation : &f/hdv sell <prix>"
+invalid-price: "&cPrix invalide."
+price-too-low: "&cLe prix minimum est de &f{min}&c."
+price-too-high: "&cLe prix maximum est de &f{max}&c."
+no-item: "&cVous devez tenir un item en main."
+blacklisted: "&cCet item ne peut pas être vendu."
+slots-full: "&cVous avez atteint votre limite de &f{max} &cannonces. Améliorez votre rang pour en avoir plus."
+tax-no-funds: "&cFonds insuffisants : la taxe de vente est de &f{tax} &c(vous avez &f{balance}&c). Modifiez votre prix."
+sell-success: "&aVous avez mis &fx{quantity} &aen vente pour &f{price} &a(taxe : &f{tax}&a). Expire dans &f{time}&a."
+
+listing-gone: "&cCette annonce n'est plus disponible."
+own-listing-left: "&cC'est votre annonce. &7Faites un &eclic droit &7pour la retirer."
+no-funds: "&cVous n'avez pas assez d'argent."
+inventory-full: "&cVotre inventaire est plein."
+bought: "&aVous avez acheté &fx{quantity} &apour &f{price} &aà &f{seller}&a."
+sold-notify: "&a{buyer} &7vous a acheté &fx{quantity} &7pour &a{price}&7."
+cancelled: "&eAnnonce retirée. Récupérez l'item dans le menu &fInvendus&e."
+expired-notice: "&eUne de vos annonces a expiré. Récupérez-la avec &f/hdv unsold&e."
+join-notice: "&eVous avez &f{count} &eitem(s) invendu(s). &7Faites &f/hdv unsold&7."
+claimed: "&aItem récupéré."
+reload: "&aConfiguration rechargée."
+
+# Format du temps restant. Variables : {h} heures, {m} minutes
+time-format: "{h}h {m}m"
+time-less: "moins d'1m"

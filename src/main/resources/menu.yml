@@ -1,0 +1,130 @@
+# ===========================================================
+#  Menus de l'hôtel de vente
+# ===========================================================
+# - size  : multiple de 9 (9 à 54)
+# - title : accepte &c &l, &#hex, et MiniMessage (<gradient:..>, etc.)
+# - slots : liste de nombres ou de plages ("0-44")
+# - material : un Material vanilla (DIAMOND) OU un item Nexo (nexo:mon_item)
+# - action   : none | next-page | previous-page | open-unsold | open-main
+#              | close | confirm | cancel
+# Les entrées de "items" sont posées dans l'ordre : les suivantes écrasent
+# les précédentes si elles utilisent le même slot.
+#
+# Placeholders annonces : {quantity} {seller} {price} {time}
+# Placeholders pages    : {page} {pages}
+
+main:
+  title: "&8&lHôtel de vente &7({page}/{pages})"
+  size: 54
+  listing-slots: ["0-44"]
+  # Lignes ajoutées sous la description de l'item mis en vente
+  listing-lore:
+    - ""
+    - "&8&m                      "
+    - "&7Quantité : &f{quantity}"
+    - "&7Vendeur : &e{seller}"
+    - "&7Prix : &a{price}"
+    - "&7Expire dans : &c{time}"
+    - ""
+    - "&eClic gauche &7pour acheter"
+  # Lignes supplémentaires pour vos propres annonces
+  own-listing-lore:
+    - "&eClic droit &7pour retirer votre annonce"
+  items:
+    filler:
+      slots: ["45-53"]
+      material: BLACK_STAINED_GLASS_PANE
+      name: " "
+      action: none
+    previous:
+      slot: 48
+      material: ARROW
+      name: "&e« Page précédente"
+      lore:
+        - "&7Page {page}/{pages}"
+      action: previous-page
+    unsold:
+      slot: 49
+      material: CHEST
+      name: "&6&lItems invendus"
+      lore:
+        - "&7Récupérez vos items non vendus"
+        - ""
+        - "&eClic pour ouvrir"
+      action: open-unsold
+    next:
+      slot: 50
+      material: ARROW
+      name: "&ePage suivante »"
+      lore:
+        - "&7Page {page}/{pages}"
+      action: next-page
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cFermer"
+      action: close
+
+unsold:
+  title: "&8&lItems invendus &7({page}/{pages})"
+  size: 54
+  listing-slots: ["0-44"]
+  # Pour les items invendus, clic gauche = récupérer
+  unsold-lore:
+    - ""
+    - "&8&m                      "
+    - "&7Quantité : &f{quantity}"
+    - "&7Prix demandé : &a{price}"
+    - ""
+    - "&eClic gauche &7pour récupérer"
+  items:
+    filler:
+      slots: ["45-53"]
+      material: BLACK_STAINED_GLASS_PANE
+      name: " "
+      action: none
+    previous:
+      slot: 48
+      material: ARROW
+      name: "&e« Page précédente"
+      action: previous-page
+    back:
+      slot: 49
+      material: OAK_DOOR
+      name: "&6Retour à l'hôtel de vente"
+      action: open-main
+    next:
+      slot: 50
+      material: ARROW
+      name: "&ePage suivante »"
+      action: next-page
+    close:
+      slot: 53
+      material: BARRIER
+      name: "&cFermer"
+      action: close
+
+confirm:
+  title: "&8&lConfirmer l'achat"
+  size: 27
+  item-slot: 13
+  item-lore:
+    - ""
+    - "&7Vendeur : &e{seller}"
+    - "&7Prix : &a{price}"
+  items:
+    filler:
+      slots: ["0-26"]
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+      action: none
+    confirm:
+      slots: [10, 11, 12]
+      material: LIME_STAINED_GLASS_PANE
+      name: "&a&lConfirmer"
+      action: confirm
+    cancel:
+      slots: [14, 15, 16]
+      material: RED_STAINED_GLASS_PANE
+      name: "&c&lAnnuler"
+      action: cancel
